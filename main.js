@@ -4,10 +4,6 @@ function Veiculo(carro, motor, rodas) {
     this.rodas = rodas;
 }
 
-Veiculo.prototype.acelerar = function () {
-    throw new Error("acelerar");
-}
-
 function ModeloVeiculo(carro, motor, rodas, modeloveiculo) {
     Veiculo.call(this, carro, motor, rodas);
     this.modeloveiculo = modeloveiculo;
@@ -15,10 +11,6 @@ function ModeloVeiculo(carro, motor, rodas, modeloveiculo) {
 
 ModeloVeiculo.prototype = Object.create(Veiculo.prototype);
 ModeloVeiculo.prototype.constructor = ModeloVeiculo;
-
-ModeloVeiculo.prototype.acelerar = function () {
-    console.log(`O veículo modelo ${this.modeloveiculo} está andando`);
-};
 
 function VelocidadeVeiculo(carro, motor, rodas, velocidadeVeiculo) {
     Veiculo.call(this, carro, motor, rodas);
@@ -35,6 +27,3 @@ const carro2 = new VelocidadeVeiculo("Tesla", "elétrico", "traseiras", "300 km/
 
 console.log(carro1);
 console.log(carro2);
-VelocidadeVeiculo.prototype.acelerar = function () {
-    console.log(`O veículo está atingindo ${this.velocidadeVeiculo}!`);
-}
